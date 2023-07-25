@@ -1,0 +1,125 @@
+*,
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+
+    &::before {
+        content: '🐠';
+        width: 120px;
+        height: 100px;
+
+        background-color: yellowgreen;
+    }
+    &::after {
+        content: 'Bu bir after';
+        background-color: blue;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+
+.warning {
+    display: flex;
+    flex-direction: row;
+
+    background-color: #edce08;
+    font-size: 16px;
+    margin: 40px;
+    padding: 20px 40px;
+
+    max-width: 400px;
+
+    &::before {
+        content: '⚠️';
+        font-size: 60px;
+    }
+}
+
+.notes {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 16px;
+
+    border: 2px solid green;
+
+    padding: 20px;
+
+    max-width: 300px;
+
+    &::after {
+        content: attr(data-note);
+        font-size: 14px;
+        font-style: italic;
+
+        padding-top: 20px;
+        border-top: 2px solid green ;
+
+    }
+    
+}
+
+body {
+    background-color: bisque;
+}
+
+a {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    &:hover {
+        background-color: blue;
+        color: white;
+    }
+
+    &:focus {
+        background-color: blue;
+        color: white;
+    }
+}
+
+ul {
+    li {
+        &:first-child {
+            background-color: purple;
+        }
+        &:last-child {
+            background-color: green;
+        }
+        &:nth-child(n+2) {}
+    }
+}
+
+input {
+    outline: 0;
+    &:invalid {
+        border: 3px solid orangered;
+    }
+    &:valid {
+        border: 3px solid green;
+    }
+}
+
+.article {
+    max-width: 600px;
+    p {
+        margin-bottom: 32px;
+        &:last-of-type {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+p + p {
+    font-weight: bold;
+}
+
+p ~ p {
+    font-weight: bold;
+}
